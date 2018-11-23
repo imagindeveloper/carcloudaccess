@@ -10,5 +10,21 @@
   "license": "MIT",
   "devDependencies": {
     "speakingurl": "^14.0.1"
-   }
+   },
+	"files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/imagindeveloper/carcloudaccess"
+  },
+  "keywords": [
+    "carcloudaccess",
+    "npm",
+    "module",
+    "node",
+    "javascript"
+  ],
+  "author": "IMAGIN <developer@imagin.studio>",
+  "license": "MIT",
 }
