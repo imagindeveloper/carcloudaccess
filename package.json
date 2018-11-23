@@ -8,7 +8,7 @@
   },
   "author": "IMAGIN",
   "license": "MIT",
-  "devDependencies": {
+  "dependencies": {
     "speakingurl": "^14.0.1"
    },
 	"files": [
@@ -26,5 +26,5 @@
     "javascript"
   ],
   "author": "IMAGIN <developer@imagin.studio>",
-  "license": "MIT",
+  "license": "MIT"
 }
