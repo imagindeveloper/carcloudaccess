@@ -1,30 +1,112 @@
 {
-  "name": "carcloudaccess",
-  "version": "1.2.12",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "name": "@imagindeveloper/carcloudaccess",
+  "libraryName": "carcloudaccess",
+  "version": "2.0.0",
+  "description": "IMAGIN.studio CarCloudAccess library",
+  "engines": {
+    "node": ">=12.14.0 <13.0.0",
+    "npm": "6.11.3"
   },
-  "author": "IMAGIN",
-  "license": "MIT",
-  "dependencies": {
-    "speakingurl": "^14.0.1"
-   },
-	"files": [
-    "lib"
+  "main": "dist/bundle.min.js",
+  "module": "dist/module/index.js",
+  "browser": "dist/browser/iife.js",
+  "unpkg": "dist/bundle.min.js",
+  "types": "dist/types/index.d.ts",
+  "files": [
+    "dist/*",
+    "dist/cjs/*",
+    "dist/module/*",
+    "dist/browser/*",
+    "dist/types/*"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "prebuild": "yarn clean-dist",
+    "build": "rollup -c rollup.config.ts",
+    "prebuild-docs": "yarn clean-docs",
+    "build-docs": "cross-env-shell JSDOC_ENV=production jsdoc -c ./jsdoc.js",
+    "build-dev": "concurrently yarn-build-dev-*",
+    "prebuild-dev-dist": "yarn clean-dev-dist && yarn copy-packageJsonToDev",
+    "build-dev-dist": "yarn copy-packageJsonToDev && cross-env ROLLUP_WATCH=true rollup -c rollup.config.ts",
+    "prebuild-dev-docs": "yarn clean-dev-docs",
+    "build-dev-docs": "cross-env-shell JSDOC_ENV=development jsdoc -c ./jsdoc.js",
+    "build-dev-ts": "tsc -p tsconfig.dev.json --module commonjs",
+    "clean": "yarn clean-dist && yarn clean-dev",
+    "clean-dev": "rimraf dev/*",
+    "clean-dist": "rimraf dist/*",
+    "clean-docs": "rimraf docs/*",
+    "clean-dev-dist": "rimraf dev/dist/*",
+    "clean-dev-docs": "rimraf dev/docs/*",
+    "clean-dev-packageJson": "rimraf dev/package.json",
+    "cleanup": "yarn clean-dev-packageJson && rimraf dist && rimraf dev",
+    "cleanup-everything": "yarn cleanup && rimraf node_modules",
+    "precopy-packageJsonToDev": "yarn clean-dev-packageJson",
+    "copy-packageJsonToDev": "copyfiles ./package.json ./dev",
+    "release": "yarn build && yarn publish && git push --tags && git push",
+    "watch": "yarn clean-dev && yarn copy-packageJsonToDev && node ./bin/watchAll.js",
+    "watch-docs": "npx nodemon --exec yarn build-dev-docs --config ./nodemon.jsdoc.json",
+    "watch-tsc": "tsc -p tsconfig.dev.json -w --module commonjs",
+    "watch-rollup": "yarn copy-packageJsonToDev && rollup -c rollup.config.ts -w"
+  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/imagindeveloper/carcloudaccess"
+    "url": "git+https://github.com/imagindeveloper/carcloudaccess.git"
   },
+  "author": "IMAGIN.studio <developer@imagin.studio>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/imagindeveloper/carcloudaccess/issues"
+  },
+  "homepage": "https://github.com/imagindeveloper/carcloudaccess#readme",
   "keywords": [
+    "imagin",
     "carcloudaccess",
-    "npm",
-    "module",
-    "node",
-    "javascript"
+    "api"
   ],
-  "author": "IMAGIN <developer@imagin.studio>",
-  "license": "MIT"
+  "devDependencies": {
+    "@babel/cli": "^7.7.7",
+    "@babel/core": "^7.7.7",
+    "@babel/plugin-proposal-class-properties": "^7.7.4",
+    "@babel/plugin-proposal-object-rest-spread": "^7.7.7",
+    "@babel/plugin-proposal-optional-chaining": "^7.7.5",
+    "@babel/preset-env": "^7.7.7",
+    "@babel/preset-typescript": "^7.7.7",
+    "@rollup/plugin-commonjs": "^11.0.0",
+    "@rollup/plugin-json": "^4.0.1",
+    "@rollup/plugin-node-resolve": "^6.0.0",
+    "@types/node": "^13.1.1",
+    "@typescript-eslint/eslint-plugin": "^2.13.0",
+    "@typescript-eslint/parser": "^2.13.0",
+    "better-docs": "^1.4.7",
+    "concurrently": "^5.0.2",
+    "copyfiles": "^2.1.1",
+    "cross-env": "^6.0.3",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.9.0",
+    "eslint-plugin-jsdoc": "^18.6.2",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "jsdoc": "^3.6.3",
+    "jsdoc-babel": "^0.5.0",
+    "jsdoc-plugin-typescript": "^2.0.5",
+    "jsdoc-to-markdown": "^5.0.3",
+    "lodash.camelcase": "^4.3.0",
+    "nodemon": "^2.0.2",
+    "prettier": "^1.19.1",
+    "rimraf": "^3.0.0",
+    "rollup": "^1.27.14",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-cleanup": "^3.1.1",
+    "rollup-plugin-gzip": "^2.2.0",
+    "rollup-plugin-sourcemaps": "^0.4.2",
+    "rollup-plugin-terser": "^5.1.3",
+    "rollup-plugin-typescript2": "^0.25.3",
+    "ts-node": "^8.5.4",
+    "typescript": "^3.7.4"
+  },
+  "dependencies": {
+    "speakingurl": "^14.0.1"
+  }
 }
