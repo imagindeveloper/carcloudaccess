@@ -293,7 +293,6 @@ Related configuration file: `./tsconfig.dev.json`
   <!>
   dist/
     - browser/
-      - IIFE
       - minified
       - single file
 
@@ -410,7 +409,7 @@ This template utilizes the NPM module [Rollup](https://rollupjs.org/guide/en/) a
 
 The build outputs to `./dist/` and is controlled via the `rollup.config.ts` config file.
 
-By default this template is setup to output the following formats: `Default:UMD(Universal` - `CJS(CommonJS/Node)` `ESM(ES Module)` `IIFE(Browser)`. This and other options can be changed in the rollup config file.
+By default this template is setup to output the following formats: `Default:UMD(Universal)` - `CJS(CommonJS/Node)` `ESM(ES Module)`. This and other options can be changed in the rollup config file.
 
 A `types` folder is also output into `./dist/`, which will contain all of the Typescript type definition files (.d.ts) for your package. Change the output location in the `tsconfig.json` and/or `tsconfig.dev.json` Typescript config files.
 

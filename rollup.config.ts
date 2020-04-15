@@ -61,24 +61,6 @@ export default [
             }
           })
         ]
-      },
-      /**
-       * Immediately Invoked Function Expression (IIFE)
-       */
-      {
-        file: `${baseDir}browser/iife.js`,
-        name: camelCase(libraryName),
-        format: 'iife',
-        esModule: false,
-        sourcemap: true,
-        plugins: [
-          gzipPlugin(),
-          terser({
-            output: {
-              comments: false
-            }
-          })
-        ]
       }
     ],
     plugins

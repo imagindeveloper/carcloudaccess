@@ -3,21 +3,13 @@
   "libraryName": "carcloudaccess",
   "version": "2.0.0",
   "description": "IMAGIN.studio CarCloudAccess library",
-  "engines": {
-    "node": ">=12.14.0 <13.0.0",
-    "npm": "6.11.3"
-  },
   "main": "dist/bundle.min.js",
   "module": "dist/module/index.js",
-  "browser": "dist/browser/iife.js",
   "unpkg": "dist/bundle.min.js",
   "types": "dist/types/index.d.ts",
   "files": [
-    "dist/*",
-    "dist/cjs/*",
-    "dist/module/*",
-    "dist/browser/*",
-    "dist/types/*"
+    "src",
+    "dist"
   ],
   "publishConfig": {
     "access": "public"
