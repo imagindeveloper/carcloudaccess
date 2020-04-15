@@ -23,12 +23,12 @@ export const getCarPaintSwatches = (params:any= <any>{}) => {
         let swatchhtml = '';
         for (let i = 0; i < paints.length; i++) {
           if (params.hasOwnProperty('target')) {
-            swatchhtml += `<div class="carcloudaccess-swatch-container" onclick="${params.onclickcallback}('${paints[i][0]}', '${paints[i][1]}');"${params.hasOwnProperty('tooltip') && params.tooltip === true ? ` title="${paints[i][2]}"` : ''}><div class="carcloudaccess-swatch" style="background-image: linear-gradient( to bottom, ${paints[i][3]},${paints[i][5]})"></div><div class="carcloudaccess-swatch" style=" background-image: linear-gradient( to bottom, ${paints[i][3]},${paints[i][4]})"></div>`;
+            swatchhtml += '<div class="carcloudaccess-swatch-container" onclick="'+params.onclickcallback+'(\''+paints[i][0]+'\', \''+paints[i][1]+'\');"'+ (params.hasOwnProperty('tooltip') && params.tooltip === true ? ' title="'+ paints[i][2] +'"' : '') +'><div class="carcloudaccess-swatch" style="background-image: linear-gradient( to bottom, '+ paints[i][4] +','+ paints[i][6] + ')"></div><div class="carcloudaccess-swatch" style=" background-image: linear-gradient( to bottom, '+ paints[i][3] + ','+paints[i][5]+')"></div>';
           } else {
-            swatchhtml += `<div class="carcloudaccess-swatch-container"${params.hasOwnProperty('tooltip') && params.tooltip === true ? ` title="${paints[i][2]}"` : ''}><div class="carcloudaccess-swatch" style="background-image: linear-gradient( to bottom, ${paints[i][3]},${paints[i][5]})"></div><div class="carcloudaccess-swatch" style=" background-image: linear-gradient( to bottom, ${paints[i][3]},${paints[i][4]})"></div>`;
+            swatchhtml += '<div class="carcloudaccess-swatch-container"'+ (params.hasOwnProperty('tooltip') && params.tooltip === true ? ' title="'+ paints[i][2] +'"' : '') +'><div class="carcloudaccess-swatch" style="background-image: linear-gradient( to bottom, '+ paints[i][4] +','+ paints[i][6] + ')"></div><div class="carcloudaccess-swatch" style=" background-image: linear-gradient( to bottom, '+ paints[i][3] + ','+paints[i][5]+')"></div>';
           }
-          if (paints[i][6] && paints[i][7] && paints[i][6].indexOf('#') !== -1) {
-            swatchhtml += `<div class="carcloudaccess-swatch-roof" style="background-image: linear-gradient( to right, ${paints[i][6]},${paints[i][7]})"></div>`;
+          if (paints[i][7] && paints[i][8] && paints[i][7].indexOf('#') !== -1) {
+            swatchhtml += '<div class="carcloudaccess-swatch-roof" style="background-image: linear-gradient( to right, '+ paints[i][7] +','+ paints[i][8] + ')"></div>';
           }
           swatchhtml += '</div>';
         }

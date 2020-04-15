@@ -10,14 +10,17 @@ export const createURL = (baseUrl: string, params:any= <any>{}, angleOverride: s
   if (!carcloudWidth) {
     carcloudWidth = 1200;
   }
+  if (carcloudWidth == 4000) {
+    carcloudWidth = 4096;
+  }
   const carcloudTailoring = (params.hasOwnProperty('tailoring') && params.tailoring != 0 ? params.tailoring : 'leaseplan');
   const carcloudDome = (params.hasOwnProperty('dome') && params.dome != 0 ? params.dome : 'opq');
   const carcloudSteering = (params.hasOwnProperty('steering') && params.steering != 0 ? params.steering : 'lhd');
   const carcloudMake = params.make;
   const carcloudModel = params.model;
-  const carcloudModelYear = (params.hasOwnProperty('modelyear') ? params.modelyear : new Date().getFullYear());
+  const carcloudModelYear = (params.hasOwnProperty('modelyear') ? params['modelyear'] : (params.hasOwnProperty('year') ? params['year'] : new Date().getFullYear()));
   const carcloudTransmission = (params.hasOwnProperty('transmission') ? params.transmission : 0);
-  const carcloudVariant = (params.hasOwnProperty('bodyvariant') ? params.bodyvariant : 5);
+  const carcloudVariant = (params.hasOwnProperty('bodyvariant') ? params['bodyvariant'] : 0);
   let carcloudSize = (params.hasOwnProperty('bodysize') ? params.bodysize : '');
   if (!carcloudSize) {
     carcloudSize = '';
