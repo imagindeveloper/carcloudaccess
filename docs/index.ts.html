@@ -1,9 +1,11 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     
     <meta charset="utf-8">
-    <title>JSDoc: placeholder</title>
+    <title>JSDoc: index.ts</title>
 
     <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -63,21 +65,35 @@
             <div class="column is-9-desktop">
                 <div class="content" id="main-content-wrapper">
                     <header class="page-title">
-                        <p>Tutorial</p>
-                        <h1>placeholder</h1>
+                        <p>Source</p>
+                        <h1>index.ts</h1>
                     </header>
                     
-                    <section>
+                    
 
-<header>
+
+
     
-</header>
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>export * from './baseUrl';
+export * from './getImage';
 
-<article>
-    
-</article>
+/**
+ * Returns a greeting
+ * @param {string} name What is your name?
+ * @param {number} age How many years old are you?
+ * @returns {string} `Hello ${name}, you are ${age} years old!`
+ */
+export const greet = (name: string, age: number) => {
+  return `Hello ${name}, you are ${age} years old!`;
+};
+</code></pre>
+        </article>
+    </section>
 
-</section>
+
+
 
                 </div>
             </div>

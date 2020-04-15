@@ -89,8 +89,7 @@ export default [
   {
     /** Process individual inputs */
     input: {
-      index: 'src/index.ts',
-      isValidType: 'src/isValidType.ts'
+      index: 'src/index.ts'
     },
     output: [
       /**
