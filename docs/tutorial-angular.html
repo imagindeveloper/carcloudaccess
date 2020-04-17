@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: angular</title>
 
     <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -63,43 +63,45 @@
             <div class="column is-9-desktop">
                 <div class="content" id="main-content-wrapper">
                     <header class="page-title">
-                        <p>Title</p>
-                        <h1>Home</h1>
+                        <p>Tutorial</p>
+                        <h1>angular</h1>
                     </header>
                     
-                    
+                    <section>
 
-
-
+<header>
     
+</header>
 
+<article>
+    <pre class="prettyprint source lang-typescript"><code>import { Component, OnInit } from '@angular/core';
+import { getImage, setBaseUrl } from &quot;@imagindeveloper/carcloudaccess&quot;;
 
-    <h3> </h3>
+@Component({ selector: 'app', templateUrl: 'app.component.html' })
+export class AppComponent implements OnInit {
+    imageUrl: string;
 
+    ngOnInit() {
+        this.run();
+    }
 
+    async run() {
+        setBaseUrl('https://client.imagin.studio');
 
+        const imgParams = {
+            make: 'Alfa Romeo',
+            model: 'Giulia',
+            ...
+        };
+        const imageData = &lt;{ url: string; }>await getImage(imgParams);
+        this.imageUrl = imageData.url;
+    }
+}
 
+</code></pre>
+</article>
 
-
-
-
-
-
-    
-
-
-
-
-    <section>
-        <article><h1 id="%40imagindeveloper%2Fcarcloudaccess">@imagindeveloper/carcloudaccess</h1>
-<p>TODO</p>
-<p><a href="DEVELOP.md">Developer documentation</a></p></article>
-    </section>
-
-
-
-
-
+</section>
 
                 </div>
             </div>
