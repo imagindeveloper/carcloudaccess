@@ -19,11 +19,11 @@ export type CarParameters = {
  */
 export type ImageResults = {
   /**
-   * Make of car, e.g. Tesla
+   * Generated URL
    */
   url: string;
   /**
-   * Model of car, e.g. Model S
+   * Optional object with information regarding nearmatching results
    */
   resultData?: any;
 };
