@@ -1,6 +1,6 @@
 import { getImage } from './getImage';
 
-export const getInteriorImage = (parameters:any= <any>{}) => {
+export const getInteriorImage = (parameters: any = <any>{}) => {
   const params = parameters || {};
   params.getexterior = false;
   params.getinterior = true;
@@ -9,7 +9,7 @@ export const getInteriorImage = (parameters:any= <any>{}) => {
   return getImage(params);
 };
 
-export const getInteriorThumb = (parameters:any= <any>{}) => {
+export const getInteriorThumb = (parameters: any = <any>{}) => {
   const params = parameters || {};
   params.getexterior = false;
   params.getinterior = true;
@@ -18,7 +18,7 @@ export const getInteriorThumb = (parameters:any= <any>{}) => {
   return getImage(params);
 };
 
-export const getExteriorImage = (parameters:any= <any>{}) => {
+export const getExteriorImage = (parameters: any = <any>{}) => {
   const params = parameters || {};
   params.getexterior = true;
   params.getinterior = false;
@@ -27,7 +27,7 @@ export const getExteriorImage = (parameters:any= <any>{}) => {
   return getImage(params);
 };
 
-export const getRimImage = (parameters:any= <any>{}) => {
+export const getRimImage = (parameters: any = <any>{}) => {
   const params = parameters || {};
   params.getexterior = false;
   params.getinterior = false;
@@ -36,7 +36,7 @@ export const getRimImage = (parameters:any= <any>{}) => {
   return getImage(params);
 };
 
-export const getRimThumb = (parameters:any= <any>{}) => {
+export const getRimThumb = (parameters: any = <any>{}) => {
   const params = parameters || {};
   params.getexterior = false;
   params.getinterior = false;

@@ -1,6 +1,6 @@
 import { getListOfImages } from './getListOfImages';
 
-export const getListOfInteriorImages = (parameters:any= <any>{}) => {
+export const getListOfInteriorImages = (parameters: any = <any>{}) => {
   const params = parameters || {};
   params.getexterior = false;
   params.getinterior = true;
@@ -9,7 +9,7 @@ export const getListOfInteriorImages = (parameters:any= <any>{}) => {
   return getListOfImages(params);
 };
 
-export const getListOfInteriorThumbs = (parameters:any= <any>{}) => {
+export const getListOfInteriorThumbs = (parameters: any = <any>{}) => {
   const params = parameters || {};
   params.getexterior = false;
   params.getinterior = true;
@@ -18,7 +18,7 @@ export const getListOfInteriorThumbs = (parameters:any= <any>{}) => {
   return getListOfImages(params);
 };
 
-export const getListOfExteriorImages = (parameters:any= <any>{}) => {
+export const getListOfExteriorImages = (parameters: any = <any>{}) => {
   const params = parameters || {};
   params.getexterior = true;
   params.getinterior = false;
@@ -27,7 +27,7 @@ export const getListOfExteriorImages = (parameters:any= <any>{}) => {
   return getListOfImages(params);
 };
 
-export const getListOfRimImages = (parameters:any= <any>{}) => {
+export const getListOfRimImages = (parameters: any = <any>{}) => {
   const params = parameters || {};
   params.getexterior = false;
   params.getinterior = false;
@@ -36,7 +36,7 @@ export const getListOfRimImages = (parameters:any= <any>{}) => {
   return getListOfImages(params);
 };
 
-export const getListOfRimThumbs = (parameters:any= <any>{}) => {
+export const getListOfRimThumbs = (parameters: any = <any>{}) => {
   const params = parameters || {};
   params.getexterior = false;
   params.getinterior = false;
