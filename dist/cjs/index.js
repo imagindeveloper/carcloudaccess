@@ -1866,22 +1866,51 @@ var getImageStatus = function getImageStatus(imageURL, angleOverride, params, ge
   });
 };
 
+/**
+ @module Base URL
+ */
 var baseUrlDefined = '';
 /**
  * Sets the baseUrl used by the API calls
- * @param {string} baseUrl The full path to the base URL
+ *
+ * @method setBaseUrl
+ * @category API
+ * @param {string} baseUrl The full path to the base URL, e.g. `https://client.imagin.studio`
+ * @example
+ * import { setBaseUrl } from '@imagindeveloper/carcloudaccess';
+ * setBaseUrl('https://client.imagin.studio');
  */
 
 var setBaseUrl = function setBaseUrl(baseUrl) {
   baseUrlDefined = baseUrl;
 };
 /**
- * Gets the baseUrl being used
+ * Gets the previously set baseUrl
+ *
+ * @method getBaseUrl
+ * @private
+ * @category API
+ * @returns {string} baseUrl
  */
 
 var getBaseUrl = function getBaseUrl() {
   return baseUrlDefined;
 };
+
+/**
+ @module Image
+ */
+/**
+ * Generates the full image URL
+ *
+ * @param {CarParameters} parameters The provided parameters
+ * @param {string} angleOverride Optional angle override
+ * @return {Promise<ImageResults>}
+ *
+ * @example
+ * import { getImage } from '@imagindeveloper/carcloudaccess';
+ * const { url } = await getImage({ make: 'Tesla', model: 'Model S', ... });
+ */
 
 var getImage = function getImage(parameters, angleOverride) {
   if (angleOverride === void 0) {
@@ -1980,7 +2009,7 @@ var getCarPaintSwatches = function getCarPaintSwatches(params) {
 
         for (var i = 0; i < paints.length; i++) {
           if (params.hasOwnProperty('target')) {
-            swatchhtml += '<div class="carcloudaccess-swatch-container" onclick="' + params.onclickcallback + '(\'' + paints[i][0] + '\', \'' + paints[i][1] + '\');"' + (params.hasOwnProperty('tooltip') && params.tooltip === true ? ' title="' + paints[i][2] + '"' : '') + '><div class="carcloudaccess-swatch" style="background-image: linear-gradient( to bottom, ' + paints[i][4] + ',' + paints[i][6] + ')"></div><div class="carcloudaccess-swatch" style=" background-image: linear-gradient( to bottom, ' + paints[i][3] + ',' + paints[i][5] + ')"></div>';
+            swatchhtml += '<div class="carcloudaccess-swatch-container" onclick="' + params.onclickcallback + "('" + paints[i][0] + "', '" + paints[i][1] + '\');"' + (params.hasOwnProperty('tooltip') && params.tooltip === true ? ' title="' + paints[i][2] + '"' : '') + '><div class="carcloudaccess-swatch" style="background-image: linear-gradient( to bottom, ' + paints[i][4] + ',' + paints[i][6] + ')"></div><div class="carcloudaccess-swatch" style=" background-image: linear-gradient( to bottom, ' + paints[i][3] + ',' + paints[i][5] + ')"></div>';
           } else {
             swatchhtml += '<div class="carcloudaccess-swatch-container"' + (params.hasOwnProperty('tooltip') && params.tooltip === true ? ' title="' + paints[i][2] + '"' : '') + '><div class="carcloudaccess-swatch" style="background-image: linear-gradient( to bottom, ' + paints[i][4] + ',' + paints[i][6] + ')"></div><div class="carcloudaccess-swatch" style=" background-image: linear-gradient( to bottom, ' + paints[i][3] + ',' + paints[i][5] + ')"></div>';
           }
