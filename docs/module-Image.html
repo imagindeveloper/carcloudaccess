@@ -1,11 +1,9 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     
     <meta charset="utf-8">
-    <title>JSDoc: baseUrl.ts</title>
+    <title>JSDoc: Image</title>
 
     <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -65,50 +63,268 @@
             <div class="column is-9-desktop">
                 <div class="content" id="main-content-wrapper">
                     <header class="page-title">
-                        <p>Source</p>
-                        <h1>baseUrl.ts</h1>
+                        <p>Module</p>
+                        <h1>Image</h1>
                     </header>
                     
                     
 
 
 
+
+<section>
+
+<header>
     
-    <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>/**
- @module Base URL
- */
-let baseUrlDefined = '';
+        
+    
+</header>
 
-/**
- * Sets the baseUrl used by the API calls
- *
- * @method setBaseUrl
- * @category API
- * @param {string} baseUrl The full path to the base URL, e.g. `https://client.imagin.studio`
- * @example
- * import { setBaseUrl } from '@imagindeveloper/carcloudaccess';
- * setBaseUrl('https://client.imagin.studio');
- */
-export const setBaseUrl = (baseUrl: string) => {
-  baseUrlDefined = baseUrl;
-};
+<article>
+    <div class="container-overview">
+    
+        
 
-/**
- * Gets the previously set baseUrl
- *
- * @method getBaseUrl
- * @private
- * @category API
- * @returns {string} baseUrl
- */
-export const getBaseUrl = () => {
-  return &lt;string>baseUrlDefined;
-};
-</code></pre>
-        </article>
-    </section>
+        
+    
+    </div>
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <div class='vertical-section'>
+            <h3 class="title"><span>Methods</span></h3>
+            <div class="members">
+            
+                <div class="member">
+
+
+    
+    <h4 class="name" id="~getImage">
+        <a class="href-link" href="#~getImage">#</a>
+        
+            
+                <span class='tag'>inner</span>
+            
+        
+        <span class="code-name">
+            
+                getImage<span class="signature">(parameters, angleOverride)</span><span class="type-signature"> &rarr; {Promise.&lt;<a href="global.html#ImageResults">ImageResults</a>>}</span>
+            
+        </span>
+    </h4>
+    
+
+    
+    
+    <div class="description">
+        <p>Generates the full image URL</p>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        
+<tr class="deep-level-0">
+  
+      <td class="name"><code>parameters</code></td>
+  
+
+  <td class="type">
+  
+      
+<span class="param-type"><a href="global.html#CarParameters">CarParameters</a></span>
+
+
+  
+  </td>
+
+  
+
+  
+
+  <td class="description last"><p>The provided parameters</p></td>
+</tr>
+
+
+    
+
+        
+<tr class="deep-level-0">
+  
+      <td class="name"><code>angleOverride</code></td>
+  
+
+  <td class="type">
+  
+      
+<span class="param-type">string</span>
+
+
+  
+  </td>
+
+  
+
+  
+
+  <td class="description last"><p>Optional angle override</p></td>
+</tr>
+
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="getImage.ts.html" class="button">View Source</a>
+            <span>
+                <a href="getImage.ts.html">getImage.ts</a>, <a href="getImage.ts.html#line9">line 9</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class='columns method-parameter'>
+        <div class="column is-2"><label>Returns:</label></div>
+        <div class="column is-10">
+            
+                    
+
+<div class="columns">
+    
+    
+    <div class='column is-5 has-text-left'>
+        <label>Type: </label>
+        
+<span class="param-type">Promise.&lt;<a href="global.html#ImageResults">ImageResults</a>></span>
+
+
+    </div>
+    
+</div>
+
+                
+        </div>
+    </div>
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>import { getImage } from '@imagindeveloper/carcloudaccess';
+const { url } = await getImage({ make: 'Tesla', model: 'Model S', ... });</code></pre>
+    
+
+
+</div>
+            
+            </div>
+        </div>
+    
+
+    
+
+    
+</article>
+
+</section>
 
 
 

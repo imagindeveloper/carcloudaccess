@@ -5,7 +5,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>JSDoc: baseUrl.ts</title>
+    <title>JSDoc: getImage.ts</title>
 
     <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -66,7 +66,7 @@
                 <div class="content" id="main-content-wrapper">
                     <header class="page-title">
                         <p>Source</p>
-                        <h1>baseUrl.ts</h1>
+                        <h1>getImage.ts</h1>
                     </header>
                     
                     
@@ -77,34 +77,44 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- @module Base URL
+ @module Image
  */
-let baseUrlDefined = '';
+import { cleanParameters } from './helpers';
+import { createURL } from './createURL';
+import { getImageStatus } from './externalRequests';
+import { getBaseUrl } from './baseUrl';
+import { CarParameters, ImageResults } from './typeDefinitions';
 
 /**
- * Sets the baseUrl used by the API calls
+ * Generates the full image URL
  *
- * @method setBaseUrl
- * @category API
- * @param {string} baseUrl The full path to the base URL, e.g. `https://client.imagin.studio`
+ * @param {CarParameters} parameters The provided parameters
+ * @param {string} angleOverride Optional angle override
+ * @return {Promise&lt;ImageResults>}
+ *
  * @example
- * import { setBaseUrl } from '@imagindeveloper/carcloudaccess';
- * setBaseUrl('https://client.imagin.studio');
+ * import { getImage } from '@imagindeveloper/carcloudaccess';
+ * const { url } = await getImage({ make: 'Tesla', model: 'Model S', ... });
  */
-export const setBaseUrl = (baseUrl: string) => {
-  baseUrlDefined = baseUrl;
-};
+export const getImage = (
+  parameters: CarParameters,
+  angleOverride: string = ''
+): Promise&lt;ImageResults> => {
+  const baseUrl = getBaseUrl();
+  const params = cleanParameters(parameters);
 
-/**
- * Gets the previously set baseUrl
- *
- * @method getBaseUrl
- * @private
- * @category API
- * @returns {string} baseUrl
- */
-export const getBaseUrl = () => {
-  return &lt;string>baseUrlDefined;
+  // Nearmatch checking defaults to on
+  const { nearmatch = 1 } = params;
+  const imageURL = createURL(baseUrl, params, angleOverride);
+
+  if (parseInt(nearmatch, 10) === 0) {
+    // return getNearMatchingStatusForImage(imageURL);
+    return getImageStatus(imageURL, angleOverride, params);
+  }
+
+  return Promise.resolve({
+    url: imageURL
+  });
 };
 </code></pre>
         </article>

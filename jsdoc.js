@@ -13,7 +13,7 @@ module.exports = {
   plugins: [
     'plugins/markdown',
     'node_modules/better-docs/category',
-    'jsdoc-plugin-typescript',
+    'node_modules/better-docs/typescript',
     'node_modules/jsdoc-babel'
   ],
   tags: {
